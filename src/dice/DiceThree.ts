@@ -18,7 +18,7 @@ class DiceThree {
 
   private async initModel() {
     this.diceModel = await this.canvasThree.loadModel(
-      "/models/dice3/scene.gltf"
+      "/models/dice/scene.gltf"
     );
     this.diceModel.scene.scale.set(0.05, 0.05, 0.05);
     this.diceModel.scene.translateY(-1);

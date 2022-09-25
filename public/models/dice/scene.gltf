@@ -3,80 +3,62 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 84,
+      "count": 7838,
       "max": [
-        10.0,
-        10.0,
-        10.0
+        20.0,
+        20.0,
+        40.0
       ],
       "min": [
-        -10.0,
-        -10.0,
-        -10.0
+        -20.0,
+        -20.0,
+        0.0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 1008,
+      "byteOffset": 94056,
       "componentType": 5126,
-      "count": 84,
+      "count": 7838,
       "max": [
-        0.9641234278678894,
-        0.9721528887748718,
-        0.9641234278678894
+        1.0,
+        1.0,
+        1.0
       ],
       "min": [
-        -0.9641234278678894,
-        -0.9721528887748718,
-        -0.9641234278678894
+        -1.0,
+        -1.0,
+        -1.0
       ],
       "type": "VEC3"
     },
     {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 84,
-      "max": [
-        0.8454777002334595,
-        0.8469698429107666,
-        0.8432019948959351,
-        1.0
-      ],
-      "min": [
-        -0.7923212051391602,
-        -0.8592117428779602,
-        -0.8430787324905396,
-        1.0
-      ],
-      "type": "VEC4"
-    },
-    {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 84,
+      "count": 7838,
       "max": [
-        0.9842000007629395,
-        0.9904000163078308
+        0.9450348615646362,
+        0.9270148873329163
       ],
       "min": [
-        0.016899999231100082,
-        0.022700000554323196
+        0.03451155126094818,
+        0.024765565991401672
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 324,
+      "count": 38994,
       "type": "SCALAR"
     }
   ],
   "asset": {
     "extras": {
-      "author": "dez_z (https://sketchfab.com/dez_z)",
+      "author": "Etherlyte (https://sketchfab.com/etherlyte)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/3d-models/dice-35aeea83f4f54f30b36214051e93447a",
+      "source": "https://sketchfab.com/3d-models/dice-f5df7799760c4452addb66854facffd7",
       "title": "Dice"
     },
     "generator": "Sketchfab-12.67.0",
@@ -85,76 +67,62 @@
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 1296,
+      "byteLength": 155976,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 672,
-      "byteOffset": 1296,
+      "byteLength": 62704,
+      "byteOffset": 155976,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 2016,
-      "byteOffset": 1968,
+      "byteLength": 188112,
+      "byteOffset": 218680,
       "byteStride": 12,
-      "name": "floatBufferViews",
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteLength": 1344,
-      "byteOffset": 3984,
-      "byteStride": 16,
       "name": "floatBufferViews",
       "target": 34962
     }
   ],
   "buffers": [
     {
-      "byteLength": 5328,
+      "byteLength": 406792,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/default_baseColor.png"
-    },
-    {
-      "uri": "textures/default_normal.png"
+      "uri": "textures/Material_25_baseColor.png"
     }
   ],
   "materials": [
     {
-      "name": "default",
-      "normalTexture": {
-        "index": 1
-      },
+      "doubleSided": true,
+      "name": "Material_25",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
           "index": 0
         },
         "metallicFactor": 0.0,
-        "roughnessFactor": 0.6
+        "roughnessFactor": 0.0383003049
       }
     }
   ],
   "meshes": [
     {
-      "name": "Object_0",
+      "name": "Box001_Material #25_0",
       "primitives": [
         {
           "attributes": {
             "NORMAL": 1,
             "POSITION": 0,
-            "TANGENT": 2,
-            "TEXCOORD_0": 3
+            "TEXCOORD_0": 2
           },
-          "indices": 4,
+          "indices": 3,
           "material": 0,
           "mode": 4
         }
@@ -172,16 +140,16 @@
         0.0,
         0.0,
         0.0,
-        0.0,
+        2.220446049250313e-16,
         -1.0,
         0.0,
         0.0,
         1.0,
+        2.220446049250313e-16,
         0.0,
         0.0,
         0.0,
-        -3.3881317890172006e-21,
-        -3.388131789017202e-21,
+        0.0,
         1.0
       ],
       "name": "Sketchfab_model"
@@ -190,11 +158,83 @@
       "children": [
         2
       ],
-      "name": "dice.obj.cleaner"
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "9f47e56d2b574033a678c84591f01eb5.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.06353282928466797,
+        20.0,
+        -0.36306095123291016,
+        1.0
+      ],
+      "name": "Box001"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        -0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        -20.0,
+        1.0
+      ],
+      "name": "Object_4"
     },
     {
       "mesh": 0,
-      "name": "Object_2"
+      "name": "Box001_Material #25_0"
     }
   ],
   "samplers": [
@@ -218,10 +258,6 @@
     {
       "sampler": 0,
       "source": 0
-    },
-    {
-      "sampler": 0,
-      "source": 1
     }
   ]
 }
