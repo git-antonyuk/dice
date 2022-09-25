@@ -45,8 +45,8 @@ class DiceThree {
       return;
     }
     this.animated = true;
-    const min = 2;
-    const max = 12;
+    const min = 7;
+    const max = 14;
     const xRand = randomIntFromInterval(min, max);
     const yRand = randomIntFromInterval(min, max);
     const y = (Math.PI / 2) * xRand;
