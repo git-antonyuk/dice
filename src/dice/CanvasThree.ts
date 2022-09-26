@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { PerspectiveCamera, WebGLRenderer } from "three";
 import debounce from "../utils/debounce";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 //@ts-ignore
@@ -20,7 +20,7 @@ class CanvasThree {
   };
   public camera!: PerspectiveCamera;
   private renderer!: WebGLRenderer;
-  public controls!: OrbitControls;
+  // public controls!: OrbitControls;
   private dracoLoader = new DRACOLoader();
   private gltfLoader = new GLTFLoader();
   private onTickSubscribed: Function[] = [];
@@ -31,7 +31,7 @@ class CanvasThree {
     this.wrapper.append(this.canvas);
     this.setSizes();
     this.addCamera();
-    this.addControls();
+    // this.addControls();
     this.addRender();
     this.tick();
 
@@ -84,12 +84,12 @@ class CanvasThree {
     tick();
   }
 
-  private addControls() {
-    this.controls = new OrbitControls(this.camera, this.canvas);
-    this.controls.enablePan = true;
-    this.controls.enableDamping = true;
-    this.controls.enabled = true;
-  }
+  // private addControls() {
+  //   this.controls = new OrbitControls(this.camera, this.canvas);
+  //   this.controls.enablePan = true;
+  //   this.controls.enableDamping = true;
+  //   this.controls.enabled = true;
+  // }
 
   private addCamera() {
     this.camera = new THREE.PerspectiveCamera(

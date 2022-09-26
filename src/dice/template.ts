@@ -26,5 +26,5 @@ export default function diceTemplate() {
     return;
   }
 
-  new Dice(buttonElement, 0, wrapperElement);
+  new Dice(buttonElement, wrapperElement);
 }
