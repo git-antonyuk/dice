@@ -1,11 +1,11 @@
 import * as THREE from "three";
 import { PerspectiveCamera, WebGLRenderer } from "three";
 import debounce from "../utils/debounce";
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTF, GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 //@ts-ignore
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 class CanvasThree {
   public scene = new THREE.Scene();
@@ -20,7 +20,7 @@ class CanvasThree {
   };
   public camera!: PerspectiveCamera;
   private renderer!: WebGLRenderer;
-  // public controls!: OrbitControls;
+  public controls!: OrbitControls;
   private dracoLoader = new DRACOLoader();
   private gltfLoader = new GLTFLoader();
   private onTickSubscribed: Function[] = [];
@@ -35,15 +35,18 @@ class CanvasThree {
     this.addRender();
     this.tick();
 
-    this.dracoLoader.setDecoderPath('/draco/gltf/');
+    this.dracoLoader.setDecoderPath("/draco/gltf/");
     this.gltfLoader.setDRACOLoader(this.dracoLoader);
-    const pmremGenerator = new THREE.PMREMGenerator( this.renderer );
-		this.scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
+    const pmremGenerator = new THREE.PMREMGenerator(this.renderer);
+    this.scene.environment = pmremGenerator.fromScene(
+      new RoomEnvironment(),
+      0.04
+    ).texture;
 
     window.addEventListener("resize", this.debounced);
   }
 
-  public addTickSubscribed (fn: Function) {
+  public addTickSubscribed(fn: Function) {
     this.onTickSubscribed.push(fn);
   }
 
@@ -82,10 +85,10 @@ class CanvasThree {
   }
 
   private addControls() {
-    // this.controls = new OrbitControls(this.camera, this.canvas);
-    // this.controls.target.set(0, 0.75, 0);
-    // this.controls.enableDamping = true;
-    // this.controls.enabled = true;
+    this.controls = new OrbitControls(this.camera, this.canvas);
+    this.controls.enablePan = true;
+    this.controls.enableDamping = true;
+    this.controls.enabled = true;
   }
 
   private addCamera() {
@@ -103,7 +106,7 @@ class CanvasThree {
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       alpha: true,
-      antialias: true 
+      antialias: true,
     });
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -112,8 +115,8 @@ class CanvasThree {
   private setSizes() {
     // this.sizes.width = this.wrapper.clientWidth;
     // this.sizes.height = this.wrapper.clientHeight;
-     this.sizes.width = window.innerWidth
-    this.sizes.height = window.innerHeight
+    this.sizes.width = window.innerWidth;
+    this.sizes.height = window.innerHeight;
   }
 
   private onResize() {

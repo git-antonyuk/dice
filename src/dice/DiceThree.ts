@@ -2,10 +2,10 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
 import CanvasThree from "./CanvasThree";
 import gsap from "gsap";
 import randomIntFromInterval from "../utils/randomIntFromInterval";
-import * as THREE from "three";
 
 class DiceThree {
   private canvasThree: CanvasThree;
+  private audio = new Audio("audio/rollDice.mp3");
 
   constructor(wrapperElement: HTMLDivElement) {
     this.canvasThree = new CanvasThree("canvas-dive", wrapperElement);
@@ -13,58 +13,82 @@ class DiceThree {
   }
 
   private diceModel!: GLTF;
-  private boom = new THREE.Group();
-  private animated = true;
+  private animated = false;
 
   private async initModel() {
     this.diceModel = await this.canvasThree.loadModel(
       "/models/dice/scene.gltf"
     );
-    this.diceModel.scene.scale.set(0.05, 0.05, 0.05);
-    this.diceModel.scene.translateY(-1);
+    const scale = 0.025;
+    this.diceModel.scene.scale.set(scale, scale, scale);
     this.canvasThree.scene.add(this.diceModel.scene);
-
-    this.boom.add(this.canvasThree.camera);
-    this.canvasThree.scene.add(this.boom);
-
-    await new Promise(resolve => setTimeout(resolve, 300))
-    await gsap.fromTo(
-      this.boom.rotation,
-      { y: 0 },
-      { y: Math.PI * 2, duration: 1 }
-    );
-
-    this.animated = false;
   }
-
-  private prevX = 0;
-  private prevY = 0;
 
   public async roll() {
     if (this.animated) {
       return;
     }
     this.animated = true;
-    const min = 7;
-    const max = 14;
-    const xRand = randomIntFromInterval(min, max);
-    const yRand = randomIntFromInterval(min, max);
-    const y = (Math.PI / 2) * xRand;
-    const x = (Math.PI / 2) * yRand;
-    // await gsap.fromTo(
-    //   this.diceModel.scene.rotation,
-    //   { x: this.prevX, y: this.prevY },
-    //   { x, y, duration: 1 }
-    // );
 
-    await gsap.fromTo(
-      this.boom.rotation,
-      { x: this.prevX, y: this.prevY },
-      { x, y, duration: 1 }
-    );
+    const positions: { [key: number]: { x: number; y: number } } = {
+      5: {
+        x: Math.PI * 2,
+        y: Math.PI * 2,
+      },
+      3: {
+        x: Math.PI * 2,
+        y: -Math.PI / 2,
+      },
+      4: {
+        x: Math.PI * 2,
+        y: Math.PI / 2,
+      },
+      2: {
+        x: Math.PI * 2,
+        y: Math.PI,
+      },
+      1: {
+        x: Math.PI / 2,
+        y: Math.PI * 2,
+      },
+      6: {
+        x: -Math.PI / 2,
+        y: Math.PI * 2,
+      },
+    };
 
-    this.prevX = x;
-    this.prevY = y;
+    const random: number = randomIntFromInterval(1, 6);
+
+    const randomPositiveNegative = Math.round(Math.random()) * 2 - 1;
+
+    const x = positions[random].x + Math.PI * 2 * randomPositiveNegative;
+    const y = positions[random].y + Math.PI * 2 * randomPositiveNegative;
+
+    console.log(random)
+
+    this.audio.play();
+
+    if (
+      this.diceModel.scene.rotation.x !== 0 &&
+      this.diceModel.scene.rotation.y !== 0
+    ) {
+      await gsap.to(this.diceModel.scene.rotation, {
+        x: 0,
+        y: 0,
+        duration: 1,
+        ease: "power2.in",
+      });
+    }
+
+    await gsap.to(this.diceModel.scene.rotation, {
+      x,
+      y,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    this.audio.pause();
+    this.audio.currentTime = 0;
 
     this.animated = false;
   }

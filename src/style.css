@@ -50,7 +50,22 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
 }
+
+button svg  {
+  display: none;
+}
+
+button:disabled svg {
+  display: block;
+}
+
+
+
 button:hover {
   border-color: #646cff;
 }
@@ -77,4 +92,5 @@ canvas {
   top: 0;
   left: 0;
   outline: none;
+  background: rgba(0, 0, 0, 0.1);
 }

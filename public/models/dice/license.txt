@@ -1,11 +1,11 @@
 Model Information:
 * title:	Dice
-* source:	https://sketchfab.com/3d-models/dice-f5df7799760c4452addb66854facffd7
-* author:	Etherlyte (https://sketchfab.com/etherlyte)
+* source:	https://sketchfab.com/3d-models/dice-a6439e68118648bc9113eaae0bec5f48
+* author:	Jeremy_W (https://sketchfab.com/Jeremy_W)
 
 Model License:
 * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 * requirements:	Author must be credited. Commercial use is allowed.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "Dice" (https://sketchfab.com/3d-models/dice-f5df7799760c4452addb66854facffd7) by Etherlyte (https://sketchfab.com/etherlyte) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "Dice" (https://sketchfab.com/3d-models/dice-a6439e68118648bc9113eaae0bec5f48) by Jeremy_W (https://sketchfab.com/Jeremy_W) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

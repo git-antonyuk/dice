@@ -13,16 +13,13 @@ class Dice {
     this.buttonElement = buttonElement;
     this.timeout = timeout;
     this.buttonElement.addEventListener("click", this.roll.bind(this));
-    wrapperElement.addEventListener("click", this.roll.bind(this));
+    // wrapperElement.addEventListener("click", this.roll.bind(this));
     this.diceThree = new DiceThree(wrapperElement)
   }
 
   private async roll() {
     this.buttonElement.disabled = true;
-
-    this.diceThree.roll();
-
-    await new Promise((resolve) => setTimeout(resolve, this.timeout));
+    await this.diceThree.roll();
     this.buttonElement.disabled = false;
   }
 }

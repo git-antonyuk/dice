@@ -3,24 +3,24 @@
     {
       "bufferView": 2,
       "componentType": 5126,
-      "count": 7838,
+      "count": 4361,
       "max": [
-        20.0,
-        20.0,
-        40.0
+        50.0,
+        50.0,
+        50.0
       ],
       "min": [
-        -20.0,
-        -20.0,
-        0.0
+        -50.0,
+        -50.0,
+        -50.0
       ],
       "type": "VEC3"
     },
     {
       "bufferView": 2,
-      "byteOffset": 94056,
+      "byteOffset": 52332,
       "componentType": 5126,
-      "count": 7838,
+      "count": 4361,
       "max": [
         1.0,
         1.0,
@@ -36,53 +36,109 @@
     {
       "bufferView": 1,
       "componentType": 5126,
-      "count": 7838,
+      "count": 4361,
       "max": [
-        0.9450348615646362,
-        0.9270148873329163
+        0.9995431900024414,
+        0.9919499754905701
       ],
       "min": [
-        0.03451155126094818,
-        0.024765565991401672
+        0.6512196660041809,
+        0.011402606964111328
       ],
       "type": "VEC2"
     },
     {
       "bufferView": 0,
       "componentType": 5125,
-      "count": 38994,
+      "count": 23940,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 104664,
+      "componentType": 5126,
+      "count": 1116,
+      "max": [
+        50.0,
+        50.0,
+        50.0
+      ],
+      "min": [
+        -50.0,
+        -50.0,
+        -50.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 118056,
+      "componentType": 5126,
+      "count": 1116,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 34888,
+      "componentType": 5126,
+      "count": 1116,
+      "max": [
+        0.6778219938278198,
+        0.9980080127716064
+      ],
+      "min": [
+        0.0018871189095079899,
+        0.0019920319318771362
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 95760,
+      "componentType": 5125,
+      "count": 3942,
       "type": "SCALAR"
     }
   ],
   "asset": {
     "extras": {
-      "author": "Etherlyte (https://sketchfab.com/etherlyte)",
+      "author": "Jeremy_W (https://sketchfab.com/Jeremy_W)",
       "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
-      "source": "https://sketchfab.com/3d-models/dice-f5df7799760c4452addb66854facffd7",
+      "source": "https://sketchfab.com/3d-models/dice-a6439e68118648bc9113eaae0bec5f48",
       "title": "Dice"
     },
-    "generator": "Sketchfab-12.67.0",
+    "generator": "Sketchfab-12.66.0",
     "version": "2.0"
   },
   "bufferViews": [
     {
       "buffer": 0,
-      "byteLength": 155976,
+      "byteLength": 111528,
       "name": "floatBufferViews",
       "target": 34963
     },
     {
       "buffer": 0,
-      "byteLength": 62704,
-      "byteOffset": 155976,
+      "byteLength": 43816,
+      "byteOffset": 111528,
       "byteStride": 8,
       "name": "floatBufferViews",
       "target": 34962
     },
     {
       "buffer": 0,
-      "byteLength": 188112,
-      "byteOffset": 218680,
+      "byteLength": 131448,
+      "byteOffset": 155344,
       "byteStride": 12,
       "name": "floatBufferViews",
       "target": 34962
@@ -90,31 +146,57 @@
   ],
   "buffers": [
     {
-      "byteLength": 406792,
+      "byteLength": 286792,
       "uri": "scene.bin"
     }
   ],
   "images": [
     {
-      "uri": "textures/Material_25_baseColor.png"
+      "uri": "textures/Mesh_Dice_Holes_baseColor.png"
+    },
+    {
+      "uri": "textures/Mesh_Dice_Holes_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Dice_Dice_baseColor.png"
+    },
+    {
+      "uri": "textures/Dice_Dice_metallicRoughness.png"
     }
   ],
   "materials": [
     {
       "doubleSided": true,
-      "name": "Material_25",
+      "name": "Mesh_Dice_Holes",
       "pbrMetallicRoughness": {
         "baseColorTexture": {
           "index": 0
         },
         "metallicFactor": 0.0,
-        "roughnessFactor": 0.0383003049
+        "metallicRoughnessTexture": {
+          "index": 1
+        },
+        "roughnessFactor": 0.43259368984279695
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Dice_Dice",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 3
+        },
+        "roughnessFactor": 0.5600502635673208
       }
     }
   ],
   "meshes": [
     {
-      "name": "Box001_Material #25_0",
+      "name": "Dice_Mesh_Dice_Holes_0",
       "primitives": [
         {
           "attributes": {
@@ -124,6 +206,21 @@
           },
           "indices": 3,
           "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Dice_Dice_Dice_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
           "mode": 4
         }
       ]
@@ -176,7 +273,7 @@
         0.0,
         1.0
       ],
-      "name": "9f47e56d2b574033a678c84591f01eb5.fbx"
+      "name": "a3b0e0a0b9804072be46bfb0daf4d214.fbx"
     },
     {
       "children": [
@@ -186,55 +283,18 @@
     },
     {
       "children": [
-        4
-      ],
-      "matrix": [
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        2.220446049250313e-16,
-        -1.0,
-        0.0,
-        0.0,
-        1.0,
-        2.220446049250313e-16,
-        0.0,
-        0.06353282928466797,
-        20.0,
-        -0.36306095123291016,
-        1.0
-      ],
-      "name": "Box001"
-    },
-    {
-      "children": [
+        4,
         5
       ],
-      "matrix": [
-        1.0,
-        0.0,
-        -0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        0.0,
-        1.0,
-        0.0,
-        0.0,
-        0.0,
-        -20.0,
-        1.0
-      ],
-      "name": "Object_4"
+      "name": "Dice"
     },
     {
       "mesh": 0,
-      "name": "Box001_Material #25_0"
+      "name": "Dice_Mesh_Dice_Holes_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Dice_Dice_Dice_0"
     }
   ],
   "samplers": [
@@ -258,6 +318,18 @@
     {
       "sampler": 0,
       "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
     }
   ]
 }
