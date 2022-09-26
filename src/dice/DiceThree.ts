@@ -75,23 +75,44 @@ class DiceThree {
     const x = positions[random].x + Math.PI * 2 * randomPositiveNegative;
     const y = positions[random].y + Math.PI * 2 * randomPositiveNegative;
 
-    await Promise.all([
-      playAudio(this.audio),
+    // await Promise.all([
+    //   playAudio(this.audio),
+    //   this.diceModel.scene.rotation.x !== 0 &&
+    //   this.diceModel.scene.rotation.y !== 0
+    //     ? gsap.to(this.diceModel.scene.rotation, {
+    //         x: 0,
+    //         y: 0,
+    //         duration: 1,
+    //         ease: "power2.in",
+    //       })
+    //     : gsap.to(this.diceModel.scene.rotation, {
+    //         x: Math.PI * 2,
+    //         y: Math.PI * 2,
+    //         duration: 1,
+    //         ease: "power2.in",
+    //       }),
+    // ]);
+
+    playAudio(this.audio);
+
+    if (
       this.diceModel.scene.rotation.x !== 0 &&
       this.diceModel.scene.rotation.y !== 0
-        ? gsap.to(this.diceModel.scene.rotation, {
-            x: 0,
-            y: 0,
-            duration: 1,
-            ease: "power2.in",
-          })
-        : gsap.to(this.diceModel.scene.rotation, {
-            x: Math.PI * 2,
-            y: Math.PI * 2,
-            duration: 1,
-            ease: "power2.in",
-          }),
-    ]);
+    ) {
+      await gsap.to(this.diceModel.scene.rotation, {
+        x: 0,
+        y: 0,
+        duration: 1,
+        ease: "power2.in",
+      });
+    } else {
+      await gsap.to(this.diceModel.scene.rotation, {
+        x: Math.PI * 2,
+        y: Math.PI * 2,
+        duration: 1,
+        ease: "power2.in",
+      });
+    }
 
     await gsap.to(this.diceModel.scene.rotation, {
       x,
