@@ -93,14 +93,14 @@ class DiceThree {
           }),
     ]);
 
-    playAudio(this.numberSounds[random - 1]);
-
     await gsap.to(this.diceModel.scene.rotation, {
       x,
       y,
       duration: 1,
       ease: "power2.out",
     });
+
+    playAudio(this.numberSounds[random - 1]);
 
     this.animated = false;
   }
