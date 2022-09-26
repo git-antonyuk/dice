@@ -3,9 +3,24 @@ import CanvasThree from "./CanvasThree";
 import gsap from "gsap";
 import randomIntFromInterval from "../utils/randomIntFromInterval";
 
+function playAudio(audio: HTMLAudioElement) {
+  return new Promise((res) => {
+    audio.play();
+    audio.onended = res;
+  });
+}
+
 class DiceThree {
   private canvasThree: CanvasThree;
   private audio = new Audio("audio/rollDice.mp3");
+  private numberSounds = [
+    new Audio("audio/one.mp3"),
+    new Audio("audio/two.mp3"),
+    new Audio("audio/three.mp3"),
+    new Audio("audio/four.mp3"),
+    new Audio("audio/five.mp3"),
+    new Audio("audio/six.mp3"),
+  ];
 
   constructor(wrapperElement: HTMLDivElement) {
     this.canvasThree = new CanvasThree("canvas-dive", wrapperElement);
@@ -19,7 +34,7 @@ class DiceThree {
     this.diceModel = await this.canvasThree.loadModel(
       "/models/dice/scene.gltf"
     );
-    const scale = 0.025;
+    const scale = 0.027;
     this.diceModel.scene.scale.set(scale, scale, scale);
     this.canvasThree.scene.add(this.diceModel.scene);
   }
@@ -64,9 +79,7 @@ class DiceThree {
     const x = positions[random].x + Math.PI * 2 * randomPositiveNegative;
     const y = positions[random].y + Math.PI * 2 * randomPositiveNegative;
 
-    console.log(random)
-
-    this.audio.play();
+    playAudio(this.audio);
 
     if (
       this.diceModel.scene.rotation.x !== 0 &&
@@ -78,7 +91,16 @@ class DiceThree {
         duration: 1,
         ease: "power2.in",
       });
+    } else {
+      await gsap.to(this.diceModel.scene.rotation, {
+        x: Math.PI * 2,
+        y: Math.PI * 2,
+        duration: 1,
+        ease: "power2.in",
+      });
     }
+
+    playAudio(this.numberSounds[random - 1]);
 
     await gsap.to(this.diceModel.scene.rotation, {
       x,
@@ -86,9 +108,6 @@ class DiceThree {
       duration: 1,
       ease: "power2.out",
     });
-
-    this.audio.pause();
-    this.audio.currentTime = 0;
 
     this.animated = false;
   }

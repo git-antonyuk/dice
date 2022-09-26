@@ -13,7 +13,7 @@ class Dice {
     this.buttonElement = buttonElement;
     this.timeout = timeout;
     this.buttonElement.addEventListener("click", this.roll.bind(this));
-    // wrapperElement.addEventListener("click", this.roll.bind(this));
+    wrapperElement.addEventListener("click", this.roll.bind(this));
     this.diceThree = new DiceThree(wrapperElement)
   }
 
