@@ -44,7 +44,6 @@ class DiceThree {
       return;
     }
     this.animated = true;
-
     const positions: { [key: number]: { x: number; y: number } } = {
       5: {
         x: Math.PI * 2,
@@ -71,34 +70,28 @@ class DiceThree {
         y: Math.PI * 2,
       },
     };
-
     const random: number = randomIntFromInterval(1, 6);
-
     const randomPositiveNegative = Math.round(Math.random()) * 2 - 1;
-
     const x = positions[random].x + Math.PI * 2 * randomPositiveNegative;
     const y = positions[random].y + Math.PI * 2 * randomPositiveNegative;
 
-    playAudio(this.audio);
-
-    if (
+    await Promise.all([
+      playAudio(this.audio),
       this.diceModel.scene.rotation.x !== 0 &&
       this.diceModel.scene.rotation.y !== 0
-    ) {
-      await gsap.to(this.diceModel.scene.rotation, {
-        x: 0,
-        y: 0,
-        duration: 1,
-        ease: "power2.in",
-      });
-    } else {
-      await gsap.to(this.diceModel.scene.rotation, {
-        x: Math.PI * 2,
-        y: Math.PI * 2,
-        duration: 1,
-        ease: "power2.in",
-      });
-    }
+        ? gsap.to(this.diceModel.scene.rotation, {
+            x: 0,
+            y: 0,
+            duration: 1,
+            ease: "power2.in",
+          })
+        : gsap.to(this.diceModel.scene.rotation, {
+            x: Math.PI * 2,
+            y: Math.PI * 2,
+            duration: 1,
+            ease: "power2.in",
+          }),
+    ]);
 
     playAudio(this.numberSounds[random - 1]);
 
