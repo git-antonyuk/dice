@@ -100,7 +100,7 @@ class DiceThree {
       ease: "power2.out",
     });
 
-    playAudio(this.numberSounds[random - 1]);
+    await playAudio(this.numberSounds[random - 1]);
 
     this.animated = false;
   }
